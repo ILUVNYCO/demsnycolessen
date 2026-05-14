@@ -74,12 +74,100 @@ nav {
   text-align: center; padding: 100px 5% 60px;
   position: relative; overflow: hidden;
 }
+
+/* Fluid blob canvas */
+.hero-blobs {
+  position: absolute; inset: 0;
+  pointer-events: none; z-index: 0;
+  filter: blur(60px) saturate(1.4);
+  opacity: 0.55;
+}
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  mix-blend-mode: screen;
+}
+.blob-1 {
+  width: 55vw; height: 55vw;
+  background: radial-gradient(circle, rgba(109,40,217,.55) 0%, transparent 70%);
+  top: -15%; left: -10%;
+  animation: blobMove1 18s ease-in-out infinite;
+}
+.blob-2 {
+  width: 45vw; height: 45vw;
+  background: radial-gradient(circle, rgba(139,92,246,.45) 0%, transparent 70%);
+  top: 20%; right: -10%;
+  animation: blobMove2 22s ease-in-out infinite;
+}
+.blob-3 {
+  width: 35vw; height: 35vw;
+  background: radial-gradient(circle, rgba(167,139,250,.35) 0%, transparent 70%);
+  bottom: -10%; left: 30%;
+  animation: blobMove3 16s ease-in-out infinite;
+}
+.blob-4 {
+  width: 28vw; height: 28vw;
+  background: radial-gradient(circle, rgba(196,181,253,.25) 0%, transparent 70%);
+  top: 40%; left: 20%;
+  animation: blobMove4 25s ease-in-out infinite;
+}
+.blob-5 {
+  width: 20vw; height: 20vw;
+  background: radial-gradient(circle, rgba(255,255,255,.08) 0%, transparent 70%);
+  top: 10%; right: 30%;
+  animation: blobMove5 20s ease-in-out infinite;
+}
+
+@keyframes blobMove1 {
+  0%   { transform: translate(0,    0)    scale(1);    }
+  25%  { transform: translate(8vw,  6vh)  scale(1.08); }
+  50%  { transform: translate(4vw,  14vh) scale(0.95); }
+  75%  { transform: translate(-4vw, 8vh)  scale(1.05); }
+  100% { transform: translate(0,    0)    scale(1);    }
+}
+@keyframes blobMove2 {
+  0%   { transform: translate(0,     0)    scale(1);    }
+  30%  { transform: translate(-10vw, 8vh)  scale(1.1);  }
+  60%  { transform: translate(-6vw,  -6vh) scale(0.92); }
+  80%  { transform: translate(-2vw,  4vh)  scale(1.04); }
+  100% { transform: translate(0,     0)    scale(1);    }
+}
+@keyframes blobMove3 {
+  0%   { transform: translate(0,    0)    scale(1);    }
+  20%  { transform: translate(-6vw, -8vh) scale(1.06); }
+  50%  { transform: translate(8vw,  -4vh) scale(0.94); }
+  75%  { transform: translate(4vw,  4vh)  scale(1.08); }
+  100% { transform: translate(0,    0)    scale(1);    }
+}
+@keyframes blobMove4 {
+  0%   { transform: translate(0,    0)     scale(1);    }
+  35%  { transform: translate(10vw, -10vh) scale(1.12); }
+  65%  { transform: translate(6vw,  6vh)   scale(0.9);  }
+  100% { transform: translate(0,    0)     scale(1);    }
+}
+@keyframes blobMove5 {
+  0%   { transform: translate(0,    0)    scale(1);    }
+  40%  { transform: translate(-8vw, 10vh) scale(1.15); }
+  70%  { transform: translate(4vw,  6vh)  scale(0.88); }
+  100% { transform: translate(0,    0)    scale(1);    }
+}
+
+/* Glasachtige overlay zodat tekst leesbaar blijft */
+.hero-overlay {
+  position: absolute; inset: 0; z-index: 1;
+  background: radial-gradient(ellipse at center, transparent 30%, rgba(10,10,10,.6) 100%);
+  pointer-events: none;
+}
+
+/* Alle hero content boven de blobs */
+.hero > *:not(.hero-blobs):not(.hero-overlay) { position: relative; z-index: 2; }
+
 .hero::before {
   content: ''; position: absolute; top: -200px;
   left: 50%; transform: translateX(-50%);
   width: 700px; height: 700px;
-  background: radial-gradient(circle, rgba(139, 92, 246, .22) 0%, transparent 70%);
-  pointer-events: none;
+  background: radial-gradient(circle, rgba(139,92,246,.12) 0%, transparent 70%);
+  pointer-events: none; z-index: 1;
 }
 .hero-tag {
   display: inline-block;
