@@ -44,21 +44,45 @@ function showStep(n) {
 
 /* ── Navigatie ─────────────────────────────────────────────── */
 function nextStep() {
-  // Leeftijdscheck op stap 1
+  // Volledige validatie op stap 1
   if (currentStep === 1) {
+    const naamInput     = document.querySelector('input[name="naam"]');
+    const emailInput    = document.querySelector('input[name="email"]');
     const leeftijdInput = document.getElementById('leeftijdInput');
     const leeftijdFout  = document.getElementById('leeftijdFout');
+
+    const naam     = naamInput.value.trim();
+    const email    = emailInput.value.trim();
     const leeftijd = parseInt(leeftijdInput.value, 10);
 
-    if (!leeftijdInput.value || isNaN(leeftijd) || leeftijd < 18) {
-      leeftijdFout.style.display = 'block';
-      leeftijdInput.style.borderColor = '#f87171';
-      leeftijdInput.focus();
-      return;
-    } else {
-      leeftijdFout.style.display = 'none';
-      leeftijdInput.style.borderColor = '';
+    // Reset stijlen
+    naamInput.style.borderColor     = '';
+    emailInput.style.borderColor    = '';
+    leeftijdInput.style.borderColor = '';
+    leeftijdFout.style.display      = 'none';
+
+    let fout = false;
+
+    if (!naam) {
+      naamInput.style.borderColor = '#f87171';
+      naamInput.focus();
+      fout = true;
     }
+
+    if (!email || !email.includes('@')) {
+      emailInput.style.borderColor = '#f87171';
+      if (!fout) emailInput.focus();
+      fout = true;
+    }
+
+    if (!leeftijdInput.value || isNaN(leeftijd) || leeftijd < 18) {
+      leeftijdInput.style.borderColor = '#f87171';
+      leeftijdFout.style.display = 'block';
+      if (!fout) leeftijdInput.focus();
+      fout = true;
+    }
+
+    if (fout) return;
   }
 
   if (currentStep < TOTAL_STEPS) {
