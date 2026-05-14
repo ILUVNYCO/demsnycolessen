@@ -103,13 +103,60 @@ function handleOverlayClick(e) {
   }
 }
 
-/* ── Formulier verzenden ───────────────────────────────────── */
-function submitForm(e) {
+/* ── Formulier verzenden via Formspree ─────────────────────── */
+async function submitForm(e) {
   e.preventDefault();
-  document.getElementById('intakeForm').style.display = 'none';
-  document.getElementById('modalNav').style.display  = 'none';
-  document.getElementById('progressFill').style.width = '100%';
-  document.getElementById('modalSuccess').classList.add('show');
+
+  const form = document.getElementById('intakeForm');
+  const btnSubmit = form.querySelector('.btn-submit');
+
+  // Laadstatus tonen
+  btnSubmit.disabled = true;
+  btnSubmit.innerHTML = `
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+      stroke-linecap="round" stroke-linejoin="round" style="animation:spin .8s linear infinite">
+      <path d="M21 12a9 9 0 1 1-6.219-8.56"/>
+    </svg>
+    Versturen...
+  `;
+
+  try {
+    const response = await fetch('https://formspree.io/f/mvzljqzb', {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    });
+
+    if (response.ok) {
+      // Succes — toon bevestigingscherm
+      form.style.display = 'none';
+      document.getElementById('modalNav').style.display = 'none';
+      document.getElementById('progressFill').style.width = '100%';
+      document.getElementById('modalSuccess').classList.add('show');
+    } else {
+      // Server fout
+      btnSubmit.disabled = false;
+      btnSubmit.innerHTML = `
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+          stroke-linecap="round" stroke-linejoin="round">
+          <line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/>
+        </svg>
+        Probeer opnieuw
+      `;
+      alert('Er ging iets mis. Probeer het opnieuw of mail ons direct op info@demsnyco.com');
+    }
+  } catch (err) {
+    // Netwerkfout
+    btnSubmit.disabled = false;
+    btnSubmit.innerHTML = `
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+        stroke-linecap="round" stroke-linejoin="round">
+        <line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/>
+      </svg>
+      Probeer opnieuw
+    `;
+    alert('Geen internetverbinding. Controleer je verbinding en probeer opnieuw.');
+  }
 }
 
 /* ── Escape-toets sluit de modal ──────────────────────────── */
