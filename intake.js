@@ -108,7 +108,7 @@ async function submitForm(e) {
   e.preventDefault();
 
   const form = document.getElementById('intakeForm');
-  const btnSubmit = form.querySelector('.btn-submit');
+  const btnSubmit = document.querySelector('.btn-submit');
 
   // Laadstatus tonen
   btnSubmit.disabled = true;
@@ -134,7 +134,8 @@ async function submitForm(e) {
       document.getElementById('progressFill').style.width = '100%';
       document.getElementById('modalSuccess').classList.add('show');
     } else {
-      // Server fout
+      const data = await response.json();
+      console.error('Formspree fout:', data);
       btnSubmit.disabled = false;
       btnSubmit.innerHTML = `
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
@@ -146,7 +147,7 @@ async function submitForm(e) {
       alert('Er ging iets mis. Probeer het opnieuw of mail ons direct op info@demsnyco.com');
     }
   } catch (err) {
-    // Netwerkfout
+    console.error('Netwerkfout:', err);
     btnSubmit.disabled = false;
     btnSubmit.innerHTML = `
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
