@@ -108,6 +108,24 @@ async function submitForm(e) {
   e.preventDefault();
 
   const form = document.getElementById('intakeForm');
+
+  // Eigen validatie — naam en e-mail zijn verplicht
+  const naam  = form.querySelector('input[name="naam"]').value.trim();
+  const email = form.querySelector('input[name="email"]').value.trim();
+
+  if (!naam) {
+    alert('Vul je naam in (stap 1).');
+    currentStep = 1;
+    showStep(1);
+    return;
+  }
+  if (!email || !email.includes('@')) {
+    alert('Vul een geldig e-mailadres in (stap 1).');
+    currentStep = 1;
+    showStep(1);
+    return;
+  }
+
   const btnSubmit = document.querySelector('.btn-submit');
 
   // Laadstatus tonen
