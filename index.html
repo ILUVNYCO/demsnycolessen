@@ -272,6 +272,13 @@
             <label>Telefoonnummer / WhatsApp <span class="optional">(optioneel)</span></label>
             <input class="form-input" type="tel" name="telefoon" placeholder="+31 6 ..." />
           </div>
+          <div class="form-group">
+            <label>Leeftijd</label>
+            <input class="form-input" type="number" name="leeftijd" id="leeftijdInput" placeholder="Jouw leeftijd" min="1" max="99" />
+            <p id="leeftijdFout" style="color:#f87171;font-size:.78rem;margin-top:.4rem;display:none;">
+              ⚠️ Je moet minimaal 18 jaar oud zijn om je aan te melden.
+            </p>
+          </div>
         </div>
 
         <!-- STAP 2 — Over jezelf -->

@@ -44,6 +44,23 @@ function showStep(n) {
 
 /* ── Navigatie ─────────────────────────────────────────────── */
 function nextStep() {
+  // Leeftijdscheck op stap 1
+  if (currentStep === 1) {
+    const leeftijdInput = document.getElementById('leeftijdInput');
+    const leeftijdFout  = document.getElementById('leeftijdFout');
+    const leeftijd = parseInt(leeftijdInput.value, 10);
+
+    if (!leeftijdInput.value || isNaN(leeftijd) || leeftijd < 18) {
+      leeftijdFout.style.display = 'block';
+      leeftijdInput.style.borderColor = '#f87171';
+      leeftijdInput.focus();
+      return;
+    } else {
+      leeftijdFout.style.display = 'none';
+      leeftijdInput.style.borderColor = '';
+    }
+  }
+
   if (currentStep < TOTAL_STEPS) {
     currentStep++;
     showStep(currentStep);
@@ -121,6 +138,14 @@ async function submitForm(e) {
   }
   if (!email || !email.includes('@')) {
     alert('Vul een geldig e-mailadres in (stap 1).');
+    currentStep = 1;
+    showStep(1);
+    return;
+  }
+
+  const leeftijd = parseInt(form.querySelector('input[name="leeftijd"]').value, 10);
+  if (!leeftijd || leeftijd < 18) {
+    alert('Je moet minimaal 18 jaar oud zijn om je aan te melden (stap 1).');
     currentStep = 1;
     showStep(1);
     return;
