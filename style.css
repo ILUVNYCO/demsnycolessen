@@ -80,7 +80,7 @@ nav {
   position: absolute; inset: 0;
   pointer-events: none; z-index: 0;
   filter: blur(60px) saturate(1.4);
-  opacity: 0.55;
+  opacity: 0.80;
 }
 .blob {
   position: absolute;
