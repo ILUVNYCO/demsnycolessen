@@ -5,116 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>DEMS &amp; NYCO — Producer Coaching</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --black: #0a0a0a; --dark: #111111; --card: #181818; --card2: #1e1e1e;
-      --border: #2a2a2a; --grey: #888; --grey-light: #bbb; --white: #f5f5f5;
-      --purple: #8b5cf6; --purple-light: #a78bfa; --purple-dark: #6d28d9;
-      --purple-glow: rgba(139,92,246,0.18);
-    }
-    html { scroll-behavior: smooth; }
-    body { background: var(--black); color: var(--white); font-family: 'Inter', sans-serif; line-height: 1.6; overflow-x: hidden; }
-
-    /* NAV */
-    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 5%; height: 70px; background: rgba(10,10,10,0.88); backdrop-filter: blur(16px); border-bottom: 1px solid var(--border); }
-    .nav-logo { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1.2rem; letter-spacing: .05em; color: var(--white); text-decoration: none; }
-    .nav-logo span { color: var(--purple-light); }
-    .nav-links { display: flex; gap: 2rem; list-style: none; }
-    .nav-links a { color: var(--grey-light); text-decoration: none; font-size: .9rem; font-weight: 500; transition: color .2s; }
-    .nav-links a:hover { color: var(--white); }
-    .nav-cta { background: var(--purple) !important; color: #fff !important; padding: .5rem 1.2rem; border-radius: 6px; transition: background .2s !important; }
-    .nav-cta:hover { background: var(--purple-dark) !important; }
-
-    /* HERO */
-    .hero { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 100px 5% 60px; position: relative; overflow: hidden; }
-    .hero::before { content: ''; position: absolute; top: -200px; left: 50%; transform: translateX(-50%); width: 700px; height: 700px; background: radial-gradient(circle, rgba(139,92,246,.22) 0%, transparent 70%); pointer-events: none; }
-    .hero-tag { display: inline-block; background: var(--purple-glow); border: 1px solid rgba(139,92,246,.4); color: var(--purple-light); font-size: .78rem; font-weight: 600; letter-spacing: .15em; text-transform: uppercase; padding: .4rem 1rem; border-radius: 100px; margin-bottom: 2rem; }
-    .hero h1 { font-family: 'Space Grotesk', sans-serif; font-size: clamp(2.8rem,7vw,5.5rem); font-weight: 700; line-height: 1.1; letter-spacing: -.02em; margin-bottom: 1.5rem; }
-    .hero h1 .accent { color: var(--purple-light); }
-    .hero p { font-size: clamp(1rem,2vw,1.2rem); color: var(--grey-light); max-width: 580px; margin: 0 auto 2.5rem; }
-    .hero-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
-
-    /* BUTTONS */
-    .btn-primary { background: var(--purple); color: #fff; padding: .85rem 2rem; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: .95rem; transition: background .2s, transform .2s; display: inline-block; }
-    .btn-primary:hover { background: var(--purple-dark); transform: translateY(-2px); }
-    .btn-secondary { background: transparent; color: var(--grey-light); padding: .85rem 2rem; border-radius: 8px; border: 1px solid var(--border); text-decoration: none; font-weight: 600; font-size: .95rem; transition: border-color .2s, color .2s; display: inline-block; }
-    .btn-secondary:hover { border-color: var(--purple); color: var(--white); }
-
-    /* SECTIONS */
-    .section { padding: 100px 5%; }
-    .section-center { text-align: center; }
-    .section-tag { display: inline-block; color: var(--purple); font-size: .75rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; margin-bottom: 1rem; }
-    .section-title { font-family: 'Space Grotesk', sans-serif; font-size: clamp(1.8rem,4vw,2.8rem); font-weight: 700; letter-spacing: -.02em; margin-bottom: 1rem; }
-    .section-sub { color: var(--grey-light); font-size: 1rem; max-width: 540px; margin: 0 auto 3.5rem; }
-    .divider { height: 1px; background: linear-gradient(to right, transparent, var(--purple), transparent); opacity: .4; max-width: 200px; margin: 0 auto 3.5rem; }
-
-    /* ARTISTS */
-    .artists-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px,1fr)); gap: 1.5rem; max-width: 900px; margin: 0 auto; }
-    .artist-card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 2.5rem 2rem; text-align: center; transition: border-color .3s, transform .3s; }
-    .artist-card:hover { border-color: var(--purple); transform: translateY(-4px); }
-    .artist-avatar { width: 90px; height: 90px; border-radius: 50%; background: linear-gradient(135deg, var(--purple-dark), var(--purple-light)); display: flex; align-items: center; justify-content: center; font-family: 'Space Grotesk', sans-serif; font-size: 2rem; font-weight: 700; color: #fff; margin: 0 auto 1.5rem; }
-    .artist-name { font-family: 'Space Grotesk', sans-serif; font-size: 1.5rem; font-weight: 700; margin-bottom: .2rem; }
-    .artist-real { color: var(--grey); font-size: .85rem; margin-bottom: 1rem; }
-    .artist-desc { color: var(--grey-light); font-size: .9rem; line-height: 1.7; margin-bottom: 1.5rem; }
-    .spotify-btn { display: inline-flex; align-items: center; gap: .5rem; background: #1DB954; color: #fff; padding: .6rem 1.2rem; border-radius: 100px; text-decoration: none; font-size: .82rem; font-weight: 700; transition: opacity .2s; }
-    .spotify-btn:hover { opacity: .85; }
-
-    /* PRICING */
-    .pricing-section { background: var(--dark); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-    .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap: 1.5rem; max-width: 1100px; margin: 0 auto; }
-    .pricing-card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; transition: border-color .3s, transform .3s; position: relative; }
-    .pricing-card:hover { border-color: var(--purple); transform: translateY(-4px); }
-    .pricing-card.featured { border-color: var(--purple); }
-    .featured-badge { position: absolute; top: 1rem; right: 1rem; background: var(--purple); color: #fff; font-size: .7rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; padding: .25rem .7rem; border-radius: 100px; }
-    .pricing-header { padding: 2rem 2rem 1.5rem; border-bottom: 1px solid var(--border); }
-    .pricing-level { color: var(--purple-light); font-size: .75rem; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; margin-bottom: .5rem; }
-    .pricing-title { font-family: 'Space Grotesk', sans-serif; font-size: 1.4rem; font-weight: 700; margin-bottom: .5rem; }
-    .pricing-desc { color: var(--grey); font-size: .85rem; }
-    .pricing-body { padding: 2rem; }
-    .pricing-feature-title { font-size: .75rem; font-weight: 600; text-transform: uppercase; letter-spacing: .1em; color: var(--grey); margin-bottom: 1rem; }
-    .pricing-features { list-style: none; margin-bottom: 2rem; }
-    .pricing-features li { display: flex; align-items: flex-start; gap: .6rem; font-size: .88rem; color: var(--grey-light); padding: .4rem 0; border-bottom: 1px solid rgba(255,255,255,.04); }
-    .pricing-features li:last-child { border-bottom: none; }
-    .check { color: var(--purple-light); font-size: .9rem; margin-top: 2px; flex-shrink: 0; }
-    .price-options { background: var(--card2); border-radius: 10px; overflow: hidden; margin-bottom: 1.5rem; }
-    .price-row { display: flex; justify-content: space-between; align-items: center; padding: .85rem 1.2rem; border-bottom: 1px solid var(--border); }
-    .price-row:last-child { border-bottom: none; }
-    .price-label { font-size: .88rem; color: var(--grey-light); }
-    .price-amount { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1rem; color: var(--white); }
-    .price-amount .per { color: var(--grey); font-size: .75rem; font-weight: 400; }
-    .price-save { background: var(--purple-glow); color: var(--purple-light); font-size: .7rem; font-weight: 700; padding: .15rem .5rem; border-radius: 4px; margin-left: .4rem; }
-    .pricing-note { font-size: .78rem; color: var(--grey); text-align: center; }
-
-    /* STEPS */
-    .steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 1.5rem; max-width: 1000px; margin: 0 auto; }
-    .step-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 2rem 1.5rem; text-align: center; transition: border-color .3s; }
-    .step-card:hover { border-color: var(--purple); }
-    .step-num { width: 48px; height: 48px; background: var(--purple-glow); border: 1px solid rgba(139,92,246,.4); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1.1rem; color: var(--purple-light); margin: 0 auto 1.2rem; }
-    .step-title { font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 1rem; margin-bottom: .5rem; }
-    .step-desc { color: var(--grey); font-size: .85rem; line-height: 1.6; }
-
-    /* CTA */
-    .cta-section { background: var(--dark); border-top: 1px solid var(--border); }
-    .cta-box { max-width: 650px; margin: 0 auto; text-align: center; }
-    .cta-box h2 { font-family: 'Space Grotesk', sans-serif; font-size: clamp(1.8rem,4vw,2.6rem); font-weight: 700; margin-bottom: 1rem; }
-    .cta-box p { color: var(--grey-light); margin-bottom: 2rem; }
-    .contact-options { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
-
-    /* FOOTER */
-    footer { padding: 2.5rem 5%; border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
-    .footer-logo { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1rem; color: var(--white); }
-    .footer-logo span { color: var(--purple-light); }
-    footer p { color: var(--grey); font-size: .82rem; }
-    .footer-links { display: flex; gap: 1.5rem; list-style: none; }
-    .footer-links a { color: var(--grey); text-decoration: none; font-size: .82rem; transition: color .2s; }
-    .footer-links a:hover { color: var(--purple-light); }
-
-    @media (max-width: 640px) { .nav-links { display: none; } .pricing-grid { grid-template-columns: 1fr; } footer { flex-direction: column; text-align: center; } }
-  </style>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
+<!-- ── NAV ──────────────────────────────────────────────────── -->
 <nav>
   <a href="#" class="nav-logo">DEMS <span>&amp;</span> NYCO</a>
   <ul class="nav-links">
@@ -125,6 +20,7 @@
   </ul>
 </nav>
 
+<!-- ── HERO ─────────────────────────────────────────────────── -->
 <section class="hero">
   <div class="hero-tag">🎛️ Producer Coaching — Beginner &amp; Intermediate</div>
   <h1>Leer produceren<br>van <span class="accent">echte artiesten</span></h1>
@@ -135,12 +31,14 @@
   </div>
 </section>
 
+<!-- ── OVER ONS ──────────────────────────────────────────────── -->
 <section class="section section-center" id="over-ons">
   <span class="section-tag">De coaches</span>
   <h2 class="section-title">Leer van artiesten<br>die het zelf doen</h2>
   <p class="section-sub">Geen theorie voor de theorie — wij geven lessen vanuit echte studio-ervaring en een actieve carrière in de muziekindustrie.</p>
   <div class="divider"></div>
   <div class="artists-grid">
+
     <div class="artist-card">
       <div class="artist-avatar">D</div>
       <div class="artist-name">DEMS</div>
@@ -151,6 +49,7 @@
         Luister op Spotify
       </a>
     </div>
+
     <div class="artist-card">
       <div class="artist-avatar">N</div>
       <div class="artist-name">NYCO</div>
@@ -161,15 +60,19 @@
         Luister op Spotify
       </a>
     </div>
+
   </div>
 </section>
 
+<!-- ── DIENSTEN & PRIJZEN ──────────────────────────────────────── -->
 <section class="section pricing-section section-center" id="diensten">
   <span class="section-tag">Diensten &amp; Prijzen</span>
   <h2 class="section-title">Kies jouw traject</h2>
   <p class="section-sub">Alle lessen zijn 1-op-1, volledig afgestemd op jouw niveau, doelen en muziekstijl. Alle prijzen zijn excl. btw.</p>
   <div class="divider"></div>
   <div class="pricing-grid">
+
+    <!-- ─ Beginner ─ -->
     <div class="pricing-card">
       <div class="pricing-header">
         <div class="pricing-level">Beginner</div>
@@ -194,8 +97,14 @@
           <div class="price-row"><span class="price-label">10 Lessen</span><span class="price-amount">€700 <span class="per">/ pakket</span> <span class="price-save">BEST DEAL</span></span></div>
         </div>
         <div class="pricing-note">Excl. btw · Geen verborgen kosten</div>
+        <button class="intake-trigger" onclick="openIntake('Beginner \u2014 Productie &amp; DJ Coaching', 'Beginner Productie')">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+          Aanmelden &amp; Intake invullen
+        </button>
       </div>
     </div>
+
+    <!-- ─ DJ Lessen ─ -->
     <div class="pricing-card">
       <div class="pricing-header">
         <div class="pricing-level">Alle niveaus</div>
@@ -220,8 +129,14 @@
           <div class="price-row"><span class="price-label">10 Lessen</span><span class="price-amount">€350 <span class="per">/ pakket</span> <span class="price-save">BEST DEAL</span></span></div>
         </div>
         <div class="pricing-note">Excl. btw · Geen verborgen kosten</div>
+        <button class="intake-trigger" onclick="openIntake('Alle Niveaus \u2014 DJ Lessen', 'DJ Lessen')">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+          Aanmelden &amp; Intake invullen
+        </button>
       </div>
     </div>
+
+    <!-- ─ Intermediate ─ -->
     <div class="pricing-card featured">
       <div class="featured-badge">Meest gekozen</div>
       <div class="pricing-header">
@@ -247,24 +162,47 @@
           <div class="price-row"><span class="price-label">10 Lessen</span><span class="price-amount">€650 <span class="per">/ pakket</span> <span class="price-save">BEST DEAL</span></span></div>
         </div>
         <div class="pricing-note">Excl. btw · Geen verborgen kosten</div>
+        <button class="intake-trigger" onclick="openIntake('Intermediate \u2014 Mentoring &amp; Coaching', 'Intermediate Mentoring')">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+          Aanmelden &amp; Intake invullen
+        </button>
       </div>
     </div>
+
   </div>
 </section>
 
+<!-- ── HOE WERKT HET ───────────────────────────────────────────── -->
 <section class="section section-center" id="hoe-werkt-het">
   <span class="section-tag">Het proces</span>
   <h2 class="section-title">Hoe werkt het?</h2>
   <p class="section-sub">Van eerste contact tot jouw eerste beat — in vier simpele stappen.</p>
   <div class="divider"></div>
   <div class="steps-grid">
-    <div class="step-card"><div class="step-num">01</div><div class="step-title">Neem contact op</div><p class="step-desc">Stuur ons een berichtje en vertel kort over je achtergrond en doelen.</p></div>
-    <div class="step-card"><div class="step-num">02</div><div class="step-title">Gratis kennismaking</div><p class="step-desc">We plannen een kort gesprek om te kijken welk traject bij jou past.</p></div>
-    <div class="step-card"><div class="step-num">03</div><div class="step-title">Plan je lessen</div><p class="step-desc">Je kiest je pakket en we plannen de lessen op een moment dat jou uitkomt.</p></div>
-    <div class="step-card"><div class="step-num">04</div><div class="step-title">Start met produceren</div><p class="step-desc">Persoonlijke 1-op-1 begeleiding volledig afgestemd op jouw niveau en stijl.</p></div>
+    <div class="step-card">
+      <div class="step-num">01</div>
+      <div class="step-title">Neem contact op</div>
+      <p class="step-desc">Stuur ons een berichtje en vertel kort over je achtergrond en doelen.</p>
+    </div>
+    <div class="step-card">
+      <div class="step-num">02</div>
+      <div class="step-title">Gratis kennismaking</div>
+      <p class="step-desc">We plannen een kort gesprek om te kijken welk traject bij jou past.</p>
+    </div>
+    <div class="step-card">
+      <div class="step-num">03</div>
+      <div class="step-title">Plan je lessen</div>
+      <p class="step-desc">Je kiest je pakket en we plannen de lessen op een moment dat jou uitkomt.</p>
+    </div>
+    <div class="step-card">
+      <div class="step-num">04</div>
+      <div class="step-title">Start met produceren</div>
+      <p class="step-desc">Persoonlijke 1-op-1 begeleiding volledig afgestemd op jouw niveau en stijl.</p>
+    </div>
   </div>
 </section>
 
+<!-- ── CONTACT ────────────────────────────────────────────────── -->
 <section class="section cta-section section-center" id="contact">
   <div class="cta-box">
     <span class="section-tag">Contact</span>
@@ -274,10 +212,11 @@
       <a href="mailto:info@demsnyco.com" class="btn-primary">📩 Stuur een mail</a>
       <a href="https://wa.me/" class="btn-secondary" target="_blank" rel="noopener">💬 WhatsApp ons</a>
     </div>
-    <p style="color:var(--grey);font-size:.8rem;margin-top:1.5rem;">Of volg ons op Spotify en blijf op de hoogte van nieuwe releases.</p>
+    <p class="footer-spotify-note">Of volg ons op Spotify en blijf op de hoogte van nieuwe releases.</p>
   </div>
 </section>
 
+<!-- ── FOOTER ─────────────────────────────────────────────────── -->
 <footer>
   <div class="footer-logo">DEMS <span>&amp;</span> NYCO</div>
   <p>© 2025 DEMS &amp; NYCO · Producer Coaching · Alle prijzen excl. btw</p>
@@ -288,5 +227,201 @@
   </ul>
 </footer>
 
+
+<!-- ════════════════════════════════════════════════════════════
+     GEDEELDE INTAKE MODAL
+     Alle drie de kaarten gebruiken dezelfde modal.
+     openIntake(titel, voorgeselecteerdeDienst) vult dynamisch in.
+════════════════════════════════════════════════════════════ -->
+<div class="modal-overlay" id="intakeModal" onclick="handleOverlayClick(event)">
+  <div class="modal-panel" id="modalPanel">
+
+    <!-- Header -->
+    <div class="modal-head">
+      <div class="modal-head-tag">
+        <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/></svg>
+        Exclusieve intake
+      </div>
+      <h2 id="modalTitle"></h2>
+      <p>Vertel ons iets over jezelf zodat we de beste begeleiding voor jou kunnen samenstellen.</p>
+      <button class="modal-close" onclick="closeIntake()" aria-label="Sluiten">✕</button>
+    </div>
+
+    <!-- Progressbalk -->
+    <div class="modal-progress">
+      <div class="modal-progress-fill" id="progressFill"></div>
+    </div>
+
+    <!-- Formulier -->
+    <div class="modal-body">
+      <form id="intakeForm" onsubmit="submitForm(event)">
+
+        <!-- STAP 1 — Basisgegevens -->
+        <div class="form-step active" data-step="1">
+          <div class="form-section-title">Basisgegevens</div>
+          <div class="form-section-sub">Even kennismaken — helemaal vrijblijvend.</div>
+          <div class="form-group">
+            <label>Naam</label>
+            <input class="form-input" type="text" name="naam" placeholder="Jouw naam" required />
+          </div>
+          <div class="form-group">
+            <label>E-mailadres</label>
+            <input class="form-input" type="email" name="email" placeholder="jouw@email.com" required />
+          </div>
+          <div class="form-group">
+            <label>Telefoonnummer / WhatsApp <span class="optional">(optioneel)</span></label>
+            <input class="form-input" type="tel" name="telefoon" placeholder="+31 6 ..." />
+          </div>
+        </div>
+
+        <!-- STAP 2 — Over jezelf -->
+        <div class="form-step" data-step="2">
+          <div class="form-section-title">Over jezelf</div>
+          <div class="form-section-sub">Zodat we direct weten welk traject bij jou past.</div>
+
+          <div class="form-group">
+            <label>Welke dienst interesseert je?</label>
+            <div class="pill-group">
+              <input class="pill-option" type="radio" name="dienst" id="d1" value="Beginner Productie" />
+              <label class="pill-label" for="d1">🎛️ Beginner Productie</label>
+              <input class="pill-option" type="radio" name="dienst" id="d2" value="Intermediate Mentoring" />
+              <label class="pill-label" for="d2">🚀 Intermediate Mentoring</label>
+              <input class="pill-option" type="radio" name="dienst" id="d3" value="DJ Lessen" />
+              <label class="pill-label" for="d3">🎧 DJ Lessen</label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Hoeveel ervaring heb je al?</label>
+            <div class="pill-group">
+              <input class="pill-option" type="radio" name="ervaring" id="e1" value="Complete beginner" />
+              <label class="pill-label" for="e1">Complete beginner</label>
+              <input class="pill-option" type="radio" name="ervaring" id="e2" value="Beetje ervaring" />
+              <label class="pill-label" for="e2">Beetje ervaring</label>
+              <input class="pill-option" type="radio" name="ervaring" id="e3" value="Gevorderd" />
+              <label class="pill-label" for="e3">Gevorderd</label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Welke software gebruik je al? <span class="optional">(meerdere mogelijk)</span></label>
+            <div class="pill-group">
+              <input class="pill-option" type="checkbox" name="software" id="sw1" value="Ableton Live" />
+              <label class="pill-label" for="sw1">Ableton Live</label>
+              <input class="pill-option" type="checkbox" name="software" id="sw2" value="FL Studio" />
+              <label class="pill-label" for="sw2">FL Studio</label>
+              <input class="pill-option" type="checkbox" name="software" id="sw3" value="Logic Pro" />
+              <label class="pill-label" for="sw3">Logic Pro</label>
+              <input class="pill-option" type="checkbox" name="software" id="sw4" value="Rekordbox" />
+              <label class="pill-label" for="sw4">Rekordbox</label>
+              <input class="pill-option" type="checkbox" name="software" id="sw5" value="Serato" />
+              <label class="pill-label" for="sw5">Serato</label>
+              <input class="pill-option" type="checkbox" name="software" id="sw6" value="Nog niets" />
+              <label class="pill-label" for="sw6">Nog niets</label>
+            </div>
+          </div>
+        </div>
+
+        <!-- STAP 3 — Doelen & stijl -->
+        <div class="form-step" data-step="3">
+          <div class="form-section-title">Doelen &amp; stijl</div>
+          <div class="form-section-sub">Wat wil je bereiken? Hoe meer je deelt, hoe beter wij kunnen helpen.</div>
+
+          <div class="form-group">
+            <label>Wat is je doel met de lessen? <span class="optional">(meerdere mogelijk)</span></label>
+            <div class="pill-group">
+              <input class="pill-option" type="checkbox" name="doel" id="do1" value="Hobby" />
+              <label class="pill-label" for="do1">🎵 Hobby</label>
+              <input class="pill-option" type="checkbox" name="doel" id="do2" value="Releases uitbrengen" />
+              <label class="pill-label" for="do2">📀 Releases uitbrengen</label>
+              <input class="pill-option" type="checkbox" name="doel" id="do3" value="Live spelen" />
+              <label class="pill-label" for="do3">🎤 Live spelen</label>
+              <input class="pill-option" type="checkbox" name="doel" id="do4" value="Artist project opbouwen" />
+              <label class="pill-label" for="do4">✦ Artist project opbouwen</label>
+              <input class="pill-option" type="checkbox" name="doel" id="do5" value="Carrière maken" />
+              <label class="pill-label" for="do5">🏆 Carrière maken</label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Welke muziekstijlen maak/draai je het liefst?</label>
+            <input class="form-input" type="text" name="stijl" placeholder="Bijv. Techno, Afrobeats, Hip-Hop, Drum &amp; Bass..." />
+          </div>
+
+          <div class="form-group">
+            <label>Wat wil je concreet bereiken met de coaching?</label>
+            <textarea class="form-textarea" name="doel_concreet" placeholder="Vertel in je eigen woorden wat je wilt leren of bereiken..." rows="4"></textarea>
+          </div>
+        </div>
+
+        <!-- STAP 4 — Praktisch & optioneel -->
+        <div class="form-step" data-step="4">
+          <div class="form-section-title">Praktisch</div>
+          <div class="form-section-sub">Bijna klaar — nog een paar korte vragen.</div>
+
+          <div class="form-group">
+            <label>Welk pakket overweeg je?</label>
+            <div class="pill-group">
+              <input class="pill-option" type="radio" name="pakket" id="p1" value="Losse les" />
+              <label class="pill-label" for="p1">1 Losse les</label>
+              <input class="pill-option" type="radio" name="pakket" id="p2" value="5 lessen" />
+              <label class="pill-label" for="p2">5 Lessen</label>
+              <input class="pill-option" type="radio" name="pakket" id="p3" value="10 lessen" />
+              <label class="pill-label" for="p3">10 Lessen</label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Hoe ben je bij ons terechtgekomen?</label>
+            <div class="pill-group">
+              <input class="pill-option" type="radio" name="bron" id="b1" value="Instagram" />
+              <label class="pill-label" for="b1">Instagram</label>
+              <input class="pill-option" type="radio" name="bron" id="b2" value="Spotify" />
+              <label class="pill-label" for="b2">Spotify</label>
+              <input class="pill-option" type="radio" name="bron" id="b3" value="TikTok" />
+              <label class="pill-label" for="b3">TikTok</label>
+              <input class="pill-option" type="radio" name="bron" id="b4" value="Via via" />
+              <label class="pill-label" for="b4">Via via</label>
+              <input class="pill-option" type="radio" name="bron" id="b5" value="Anders" />
+              <label class="pill-label" for="b5">Anders</label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Tracks of mixen om te delen <span class="optional">(optioneel)</span></label>
+            <input class="form-input" type="url" name="link" placeholder="SoundCloud / Google Drive / Dropbox link..." />
+          </div>
+
+          <button type="submit" class="btn-submit">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            Verstuur Aanvraag
+          </button>
+          <p class="btn-submit-note">We bekijken persoonlijk elke aanvraag en nemen zo snel mogelijk contact met je op.</p>
+        </div>
+
+      </form>
+
+      <!-- Navigatie -->
+      <div class="modal-nav" id="modalNav">
+        <div class="step-dots" id="stepDots"></div>
+        <button class="btn-nav-back" id="btnBack" onclick="prevStep()">← Terug</button>
+        <button class="btn-nav-next" id="btnNext" onclick="nextStep()">
+          Volgende
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+      </div>
+
+      <!-- Bevestiging -->
+      <div class="modal-success" id="modalSuccess">
+        <div class="success-icon">✓</div>
+        <h3>Aanvraag ontvangen!</h3>
+        <p>Bedankt voor je aanmelding. We bekijken jouw aanvraag persoonlijk en nemen zo snel mogelijk contact met je op.</p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script src="intake.js"></script>
 </body>
 </html>
