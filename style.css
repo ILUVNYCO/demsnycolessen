@@ -312,6 +312,12 @@ nav {
 .cta-box p { color: var(--grey-light); margin-bottom: 2rem; }
 .contact-options { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
 
+.footer-spotify-note {
+  color: var(--grey);
+  font-size: .8rem;
+  margin-top: 1.5rem;
+}
+
 
 /* ── FOOTER ───────────────────────────────────────────────── */
 
@@ -476,7 +482,7 @@ footer p { color: var(--grey); font-size: .82rem; }
   color: var(--white); font-family: 'Inter', sans-serif; font-size: .9rem;
   padding: .85rem 1.1rem;
   transition: border-color .2s, background .2s, box-shadow .2s;
-  outline: none; -webkit-appearance: none;
+  outline: none; -webkit-appearance: none; appearance: none;
 }
 .form-input::placeholder,
 .form-textarea::placeholder { color: var(--grey); }
