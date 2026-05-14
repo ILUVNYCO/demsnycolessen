@@ -65,22 +65,13 @@ nav {
 .nav-cta:hover { background: var(--purple-dark) !important; }
 
 
-/* ── HERO ─────────────────────────────────────────────────── */
+/* ── FLUID BLOB ACHTERGROND — HELE PAGINA ─────────────────── */
 
-.hero {
-  min-height: 100vh;
-  display: flex; flex-direction: column;
-  align-items: center; justify-content: center;
-  text-align: center; padding: 100px 5% 60px;
-  position: relative; overflow: hidden;
-}
-
-/* Fluid blob canvas */
-.hero-blobs {
-  position: absolute; inset: 0;
+.site-blobs {
+  position: fixed; inset: 0;
   pointer-events: none; z-index: 0;
   filter: blur(60px) saturate(1.4);
-  opacity: 0.80;
+  opacity: 0.55;
 }
 .blob {
   position: absolute;
@@ -152,21 +143,20 @@ nav {
   100% { transform: translate(0,    0)    scale(1);    }
 }
 
-/* Glasachtige overlay zodat tekst leesbaar blijft */
-.hero-overlay {
-  position: absolute; inset: 0; z-index: 1;
-  background: radial-gradient(ellipse at center, transparent 30%, rgba(10,10,10,.6) 100%);
-  pointer-events: none;
+/* ── HERO ─────────────────────────────────────────────────── */
+
+.hero {
+  min-height: 100vh;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  text-align: center; padding: 100px 5% 60px;
+  position: relative; overflow: hidden; z-index: 1;
 }
-
-/* Alle hero content boven de blobs */
-.hero > *:not(.hero-blobs):not(.hero-overlay) { position: relative; z-index: 2; }
-
 .hero::before {
   content: ''; position: absolute; top: -200px;
   left: 50%; transform: translateX(-50%);
   width: 700px; height: 700px;
-  background: radial-gradient(circle, rgba(139,92,246,.12) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(139,92,246,.08) 0%, transparent 70%);
   pointer-events: none; z-index: 1;
 }
 .hero-tag {
@@ -215,7 +205,7 @@ nav {
 
 /* ── SECTIONS ─────────────────────────────────────────────── */
 
-.section { padding: 100px 5%; }
+.section { padding: 100px 5%; position: relative; z-index: 1; }
 .section-center { text-align: center; }
 
 .section-tag {
@@ -412,7 +402,7 @@ nav {
 footer {
   padding: 2.5rem 5%; border-top: 1px solid var(--border);
   display: flex; align-items: center; justify-content: space-between;
-  flex-wrap: wrap; gap: 1rem;
+  flex-wrap: wrap; gap: 1rem; position: relative; z-index: 1;
 }
 .footer-logo {
   font-family: 'Space Grotesk', sans-serif;
