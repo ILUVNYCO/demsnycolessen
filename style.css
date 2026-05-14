@@ -500,7 +500,32 @@ footer p { color: var(--grey); font-size: .82rem; }
 .form-textarea { resize: vertical; min-height: 100px; line-height: 1.6; }
 
 
-/* ── PILL SELECTORS ───────────────────────────────────────── */
+/* ── CHECKBOX ─────────────────────────────────────────────── */
+
+.checkbox-label {
+  display: flex; align-items: flex-start; gap: .75rem;
+  cursor: pointer; text-transform: none; letter-spacing: 0;
+  font-size: .88rem; font-weight: 500; color: var(--grey-light);
+}
+.checkbox-label input[type="checkbox"] {
+  appearance: none; -webkit-appearance: none;
+  width: 18px; height: 18px; min-width: 18px;
+  border: 1.5px solid rgba(255,255,255,.2); border-radius: 5px;
+  background: rgba(255,255,255,.04);
+  cursor: pointer; margin-top: 2px;
+  transition: all .2s; position: relative;
+}
+.checkbox-label input[type="checkbox"]:checked {
+  background: var(--purple); border-color: var(--purple);
+}
+.checkbox-label input[type="checkbox"]:checked::after {
+  content: '✓'; position: absolute;
+  top: 50%; left: 50%; transform: translate(-50%, -50%);
+  color: #fff; font-size: .75rem; font-weight: 700;
+}
+.checkbox-label:hover input[type="checkbox"] {
+  border-color: var(--purple-light);
+}
 
 .pill-group { display: flex; flex-wrap: wrap; gap: .5rem; }
 .pill-option { display: none; }

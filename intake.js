@@ -75,11 +75,21 @@ function nextStep() {
       fout = true;
     }
 
+    const leeftijdCheck = document.getElementById('leeftijdCheck');
+    const checkFout     = document.getElementById('checkFout');
+
     if (!leeftijdInput.value || isNaN(leeftijd) || leeftijd < 18) {
       leeftijdInput.style.borderColor = '#f87171';
       leeftijdFout.style.display = 'block';
       if (!fout) leeftijdInput.focus();
       fout = true;
+    }
+
+    if (!leeftijdCheck.checked) {
+      checkFout.style.display = 'block';
+      fout = true;
+    } else {
+      checkFout.style.display = 'none';
     }
 
     if (fout) return;
@@ -170,6 +180,14 @@ async function submitForm(e) {
   const leeftijd = parseInt(form.querySelector('input[name="leeftijd"]').value, 10);
   if (!leeftijd || leeftijd < 18) {
     alert('Je moet minimaal 18 jaar oud zijn om je aan te melden (stap 1).');
+    currentStep = 1;
+    showStep(1);
+    return;
+  }
+
+  const leeftijdCheck = document.getElementById('leeftijdCheck');
+  if (!leeftijdCheck.checked) {
+    alert('Bevestig dat je 18 jaar of ouder bent (stap 1).');
     currentStep = 1;
     showStep(1);
     return;
