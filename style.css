@@ -741,7 +741,50 @@ footer p { color: var(--grey); font-size: .82rem; }
 }
 
 
-/* ── RESPONSIVE ───────────────────────────────────────────── */
+/* ── DISCORD INVITE ───────────────────────────────────────── */
+
+.discord-invite {
+  margin-top: 2rem;
+  background: rgba(88, 101, 242, .1);
+  border: 1px solid rgba(88, 101, 242, .3);
+  border-radius: 16px;
+  padding: 1.5rem;
+  text-align: center;
+}
+.discord-invite-icon {
+  width: 48px; height: 48px; border-radius: 50%;
+  background: #5865F2;
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto .75rem;
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(88, 101, 242, .4);
+}
+.discord-invite-text {
+  color: var(--grey-light);
+  font-size: .85rem;
+  line-height: 1.6;
+  margin-bottom: 1.2rem;
+  max-width: 320px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.discord-invite-btn {
+  display: inline-flex; align-items: center; gap: .5rem;
+  background: #5865F2;
+  color: #fff;
+  padding: .75rem 1.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: .88rem;
+  transition: background .2s, transform .2s, box-shadow .2s;
+  box-shadow: 0 4px 16px rgba(88, 101, 242, .35);
+}
+.discord-invite-btn:hover {
+  background: #4752c4;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(88, 101, 242, .5);
+}
 
 @media (max-width: 640px) {
   .nav-links { display: none; }
