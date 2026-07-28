@@ -1,15 +1,53 @@
 <!DOCTYPE html>
 <html lang="nl">
+
+<!-- ============================================================
+     DEMS & NYCO — Producer Coaching Website
+     
+     Bestanden:
+       index.html  ← dit bestand (structuur)
+       style.css   ← alle opmaak
+       intake.js   ← intakeformulier logica
+       lang.js     ← NL/EN vertalingen
+     
+     Secties in dit bestand:
+       1. HEAD         – fonts, meta, stylesheets
+       2. ACHTERGROND  – animerende blob effecten
+       3. NAV          – navigatiebalk
+       4. HERO         – openingssectie
+       5. OVER ONS     – coach profielen
+       6. DIENSTEN     – drie pricing cards
+       7. HOE WERKT HET – stappen uitleg
+       8. CONTACT      – CTA sectie
+       9. FOOTER
+      10. INTAKE MODAL – aanmeldformulier (4 stappen)
+      11. SCRIPTS
+============================================================ -->
+
 <head>
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>DEMS &amp; NYCO — Producer Coaching</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Lettertypen -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Stijlen -->
   <link rel="stylesheet" href="style.css" />
+
 </head>
+
 <body>
 
-<!-- Fluid blob achtergrond — gehele pagina -->
+
+<!-- ============================================================
+     1. ACHTERGROND — Animerende fluid blobs
+============================================================ -->
+
 <div class="site-blobs" aria-hidden="true">
   <div class="blob blob-1"></div>
   <div class="blob blob-2"></div>
@@ -18,78 +56,181 @@
   <div class="blob blob-5"></div>
 </div>
 
-<!-- ── NAV ──────────────────────────────────────────────────── -->
+
+<!-- ============================================================
+     2. NAV — Vaste navigatiebalk bovenaan
+============================================================ -->
+
 <nav>
+
   <a href="#" class="nav-logo">DEMS <span>&amp;</span> NYCO</a>
+
   <ul class="nav-links">
-    <li><a href="#over-ons" data-i18n="nav-over-ons">Over dildo ons</a></li>
-    <li><a href="#diensten" data-i18n="nav-diensten">Diensten</a></li>
+    <li><a href="#over-ons"     data-i18n="nav-over-ons">Over ons</a></li>
+    <li><a href="#diensten"     data-i18n="nav-diensten">Diensten</a></li>
     <li><a href="#hoe-werkt-het" data-i18n="nav-hoe">Hoe werkt het</a></li>
-    <li><a href="#contact" class="nav-cta" data-i18n="nav-cta">Boek een les</a></li>
+    <li>
+      <a href="#contact" class="nav-cta" data-i18n="nav-cta">
+        Boek een les
+      </a>
+    </li>
   </ul>
-  <button id="langToggle" class="lang-toggle" onclick="toggleLang()" aria-label="Switch to English">EN</button>
+
+  <!-- Taalwisselaar NL / EN -->
+  <button
+    id="langToggle"
+    class="lang-toggle"
+    onclick="toggleLang()"
+    aria-label="Switch to English"
+  >EN</button>
+
 </nav>
 
-<!-- ── HERO ─────────────────────────────────────────────────── -->
+
+<!-- ============================================================
+     3. HERO — Openingssectie
+============================================================ -->
+
 <section class="hero">
-  <div class="hero-tag" data-i18n="hero-tag">🎛️ Producer Coaching — Beginner &amp; Intermediate</div>
-  <h1 data-i18n="hero-h1">Leer produceren<br>van <span class="accent">echte artiesten</span></h1>
-  <p data-i18n="hero-p">Persoonlijke 1-op-1 begeleiding van DEMS en NYCO. Van je eerste beat tot een release-ready track, op jouw tempo, in jouw stijl.</p>
-  <div class="hero-btns">
-    <a href="#contact" class="btn-primary" data-i18n="hero-btn-primary">Boek een gratis kennismaking</a>
-    <a href="#diensten" class="btn-secondary" data-i18n="hero-btn-secondary">Bekijk de diensten</a>
+
+  <div class="hero-tag" data-i18n="hero-tag">
+    🎛️ Producer Coaching — Beginner &amp; Intermediate
   </div>
+
+  <h1 data-i18n="hero-h1">
+    Leer produceren<br>van <span class="accent">echte artiesten</span>
+  </h1>
+
+  <p data-i18n="hero-p">
+    Persoonlijke 1-op-1 begeleiding van DEMS en NYCO.
+    Van je eerste beat tot een release-ready track — op jouw tempo, in jouw stijl.
+  </p>
+
+  <div class="hero-btns">
+    <a href="#contact"  class="btn-primary"   data-i18n="hero-btn-primary">Boek een gratis kennismaking</a>
+    <a href="#diensten" class="btn-secondary"  data-i18n="hero-btn-secondary">Bekijk de diensten</a>
+  </div>
+
 </section>
 
-<!-- ── OVER ONS ──────────────────────────────────────────────── -->
+
+<!-- ============================================================
+     4. OVER ONS — Coach profielen
+============================================================ -->
+
 <section class="section section-center" id="over-ons">
-  <span class="section-tag" data-i18n="over-tag">De coaches</span>
-  <h2 class="section-title" data-i18n="over-title">Leer van artiesten<br>die het zelf doen</h2>
-  <p class="section-sub" data-i18n="over-sub">Geen theorie voor de theorie, wij geven lessen vanuit echte studio-ervaring en een actieve carrière in de muziekindustrie.</p>
+
+  <span class="section-tag"   data-i18n="over-tag">De coaches</span>
+  <h2   class="section-title" data-i18n="over-title">Leer van artiesten<br>die het zelf doen</h2>
+  <p    class="section-sub"   data-i18n="over-sub">
+    Geen theorie voor de theorie — wij geven lessen vanuit echte studio-ervaring
+    en een actieve carrière in de muziekindustrie.
+  </p>
+
   <div class="divider"></div>
+
   <div class="artists-grid">
 
+    <!-- Coach: DEMS -->
     <div class="artist-card">
       <div class="artist-avatar">D</div>
       <div class="artist-name">DEMS</div>
       <div class="artist-real">Demir</div>
-      <p class="artist-desc" data-i18n="dems-desc">Producer en artiest met een passie voor het overbrengen van kennis. DEMS begeleidt je van je eerste stappen in Ableton tot een professionele workflow die bij jou past.</p>
-      <a class="spotify-btn" href="https://open.spotify.com/artist/0UWqc9Fvugduq61I2eawnN?si=06A5k0onTTatWY7kqP9aiw" target="_blank" rel="noopener">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+
+      <p class="artist-desc" data-i18n="dems-desc">
+        Producer en artiest met een passie voor het overbrengen van kennis.
+        DEMS begeleidt je van je eerste stappen in Ableton tot een professionele
+        workflow die bij jou past.
+      </p>
+
+      <a class="spotify-btn"
+         href="https://open.spotify.com/artist/0UWqc9Fvugduq61I2eawnN?si=06A5k0onTTatWY7kqP9aiw"
+         target="_blank"
+         rel="noopener"
+      >
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12
+            0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561
+            -1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021
+            8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6
+            -1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6
+            -.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54
+            .78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2
+            -.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02
+            15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/>
+        </svg>
         <span data-i18n="spotify-btn">Luister op Spotify</span>
       </a>
     </div>
 
+    <!-- Coach: NYCO -->
     <div class="artist-card">
       <div class="artist-avatar">N</div>
       <div class="artist-name">NYCO</div>
       <div class="artist-real">Nico</div>
-      <p class="artist-desc" data-i18n="nyco-desc">Artiest en producer met een scherp oor voor sound design en arrangement. NYCO helpt je jouw tracks naar een professioneel niveau tillen met focus op jouw artistieke identiteit.</p>
-      <a class="spotify-btn" href="https://open.spotify.com/artist/6qGPRvyYVYsn8CuD9kX2jP?si=dQHAY1b6SNCfmRLCb0Gc1g" target="_blank" rel="noopener">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+
+      <p class="artist-desc" data-i18n="nyco-desc">
+        Artiest en producer met een scherp oor voor sound design en arrangement.
+        NYCO helpt je jouw tracks naar een professioneel niveau tillen met focus
+        op jouw artistieke identiteit.
+      </p>
+
+      <a class="spotify-btn"
+         href="https://open.spotify.com/artist/6qGPRvyYVYsn8CuD9kX2jP?si=dQHAY1b6SNCfmRLCb0Gc1g"
+         target="_blank"
+         rel="noopener"
+      >
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12
+            0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561
+            -1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021
+            8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6
+            -1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6
+            -.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54
+            .78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2
+            -.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02
+            15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/>
+        </svg>
         <span data-i18n="spotify-btn">Luister op Spotify</span>
       </a>
     </div>
 
-  </div>
+  </div><!-- /artists-grid -->
+
 </section>
 
-<!-- ── DIENSTEN & PRIJZEN ──────────────────────────────────────── -->
+
+<!-- ============================================================
+     5. DIENSTEN & PRIJZEN — Drie coaching trajecten
+============================================================ -->
+
 <section class="section pricing-section section-center" id="diensten">
-  <span class="section-tag" data-i18n="diensten-tag">Diensten &amp; Prijzen</span>
-  <h2 class="section-title" data-i18n="diensten-title">Kies jouw traject</h2>
-  <p class="section-sub" data-i18n="diensten-sub">Alle lessen zijn 1-op-1, volledig afgestemd op jouw niveau, doelen en muziekstijl. Alle prijzen zijn excl. btw.</p>
+
+  <span class="section-tag"   data-i18n="diensten-tag">Diensten &amp; Prijzen</span>
+  <h2   class="section-title" data-i18n="diensten-title">Kies jouw traject</h2>
+  <p    class="section-sub"   data-i18n="diensten-sub">
+    Alle lessen zijn 1-op-1, volledig afgestemd op jouw niveau, doelen en muziekstijl.
+    Alle prijzen zijn excl. btw.
+  </p>
+
   <div class="divider"></div>
+
   <div class="pricing-grid">
 
-    <!-- ─ Beginner ─ -->
+
+    <!-- ── CARD 1: Beginner Productie & DJ Coaching ── -->
     <div class="pricing-card">
+
       <div class="pricing-header">
         <div class="pricing-level" data-i18n="beg-level">Beginner</div>
         <div class="pricing-title" data-i18n="beg-title">Productie &amp; DJ Coaching</div>
-        <div class="pricing-desc" data-i18n="beg-desc">Start met produceren en bouw een solide basis op in Ableton.</div>
+        <div class="pricing-desc"  data-i18n="beg-desc">
+          Start met produceren en bouw een solide basis op in Ableton.
+        </div>
       </div>
+
       <div class="pricing-body">
+
         <div class="pricing-feature-title" data-i18n="beg-feat-title">Wat je leert</div>
         <ul class="pricing-features">
           <li><span class="check">✶</span> <span data-i18n="beg-f1">Persoonlijke 1-op-1 begeleiding</span></li>
@@ -100,28 +241,56 @@
           <li><span class="check">✶</span> <span data-i18n="beg-f6">Extra ondersteuning bij vragen</span></li>
           <li><span class="check">✶</span> <span data-i18n="beg-f7">Huiswerk &amp; opdrachten op maat</span></li>
         </ul>
+
         <div class="pricing-feature-title" data-i18n="beg-price-title">Prijzen</div>
         <div class="price-options">
-          <div class="price-row"><span class="price-label">1 Les</span><span class="price-amount">€80 <span class="per" data-i18n="price-les">/ les</span></span></div>
-          <div class="price-row"><span class="price-label">5 Lessen</span><span class="price-amount">€400 <span class="per" data-i18n="price-pakket">/ pakket</span></span></div>
-          <div class="price-row"><span class="price-label">10 Lessen</span><span class="price-amount">€700 <span class="per" data-i18n="price-pakket">/ pakket</span> <span class="price-save">BEST DEAL</span></span></div>
+          <div class="price-row">
+            <span class="price-label">1 Les</span>
+            <span class="price-amount">€80 <span class="per" data-i18n="price-les">/ les</span></span>
+          </div>
+          <div class="price-row">
+            <span class="price-label">5 Lessen</span>
+            <span class="price-amount">€400 <span class="per" data-i18n="price-pakket">/ pakket</span></span>
+          </div>
+          <div class="price-row">
+            <span class="price-label">10 Lessen</span>
+            <span class="price-amount">
+              €700 <span class="per" data-i18n="price-pakket">/ pakket</span>
+              <span class="price-save">BEST DEAL</span>
+            </span>
+          </div>
         </div>
+
         <div class="pricing-note" data-i18n="beg-note">Excl. btw · Geen verborgen kosten</div>
-        <button class="intake-trigger" onclick="openIntake('Beginner \u2014 Productie &amp; DJ Coaching', 'Beginner Productie')">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+
+        <button
+          class="intake-trigger"
+          onclick="openIntake('Beginner \u2014 Productie &amp; DJ Coaching', 'Beginner Productie')"
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+            <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+          </svg>
           <span data-i18n="beg-btn">Aanmelden &amp; Intake invullen</span>
         </button>
-      </div>
-    </div>
 
-    <!-- ─ DJ Lessen ─ -->
+      </div><!-- /pricing-body -->
+    </div><!-- /card: Beginner -->
+
+
+    <!-- ── CARD 2: DJ Lessen ── -->
     <div class="pricing-card">
+
       <div class="pricing-header">
         <div class="pricing-level" data-i18n="dj-level">Alle niveaus</div>
         <div class="pricing-title" data-i18n="dj-title">DJ Lessen</div>
-        <div class="pricing-desc" data-i18n="dj-desc">Leer DJ'en van scratch of verfijn je skills op de decks — op jouw niveau en tempo.</div>
+        <div class="pricing-desc"  data-i18n="dj-desc">
+          Leer DJ'en van scratch of verfijn je skills op de decks — op jouw niveau en tempo.
+        </div>
       </div>
+
       <div class="pricing-body">
+
         <div class="pricing-feature-title" data-i18n="dj-feat-title">Wat je leert</div>
         <ul class="pricing-features">
           <li><span class="check">✶</span> <span data-i18n="dj-f1">Beatmatching &amp; tempo controle</span></li>
@@ -132,29 +301,58 @@
           <li><span class="check">✶</span> <span data-i18n="dj-f6">Persoonlijke 1-op-1 begeleiding</span></li>
           <li><span class="check">✶</span> <span data-i18n="dj-f7">Huiswerk &amp; opdrachten op maat</span></li>
         </ul>
+
         <div class="pricing-feature-title" data-i18n="beg-price-title">Prijzen</div>
         <div class="price-options">
-          <div class="price-row"><span class="price-label">1 Les</span><span class="price-amount">€50 <span class="per" data-i18n="price-les">/ les</span></span></div>
-          <div class="price-row"><span class="price-label">5 Lessen</span><span class="price-amount">€200 <span class="per" data-i18n="price-pakket">/ pakket</span></span></div>
-          <div class="price-row"><span class="price-label">10 Lessen</span><span class="price-amount">€350 <span class="per" data-i18n="price-pakket">/ pakket</span> <span class="price-save">BEST DEAL</span></span></div>
+          <div class="price-row">
+            <span class="price-label">1 Les</span>
+            <span class="price-amount">€50 <span class="per" data-i18n="price-les">/ les</span></span>
+          </div>
+          <div class="price-row">
+            <span class="price-label">5 Lessen</span>
+            <span class="price-amount">€200 <span class="per" data-i18n="price-pakket">/ pakket</span></span>
+          </div>
+          <div class="price-row">
+            <span class="price-label">10 Lessen</span>
+            <span class="price-amount">
+              €350 <span class="per" data-i18n="price-pakket">/ pakket</span>
+              <span class="price-save">BEST DEAL</span>
+            </span>
+          </div>
         </div>
+
         <div class="pricing-note" data-i18n="dj-note">Excl. btw · Geen verborgen kosten</div>
-        <button class="intake-trigger" onclick="openIntake('Alle Niveaus \u2014 DJ Lessen', 'DJ Lessen')">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+
+        <button
+          class="intake-trigger"
+          onclick="openIntake('Alle Niveaus \u2014 DJ Lessen', 'DJ Lessen')"
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+            <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+          </svg>
           <span data-i18n="dj-btn">Aanmelden &amp; Intake invullen</span>
         </button>
-      </div>
-    </div>
 
-    <!-- ─ Intermediate ─ -->
+      </div><!-- /pricing-body -->
+    </div><!-- /card: DJ Lessen -->
+
+
+    <!-- ── CARD 3: Intermediate Mentoring (featured) ── -->
     <div class="pricing-card featured">
+
       <div class="featured-badge" data-i18n="int-badge">Meest gekozen</div>
+
       <div class="pricing-header">
         <div class="pricing-level" data-i18n="int-level">Intermediate</div>
         <div class="pricing-title" data-i18n="int-title">Mentoring &amp; Coaching</div>
-        <div class="pricing-desc" data-i18n="int-desc">Voor producers met ervaring die sneller willen doorgroeien naar professioneel niveau.</div>
+        <div class="pricing-desc"  data-i18n="int-desc">
+          Voor producers met ervaring die sneller willen doorgroeien naar professioneel niveau.
+        </div>
       </div>
+
       <div class="pricing-body">
+
         <div class="pricing-feature-title" data-i18n="int-feat-title">Focus gebieden</div>
         <ul class="pricing-features">
           <li><span class="check">✶</span> <span data-i18n="int-f1">Professionele feedback op jouw tracks</span></li>
@@ -165,268 +363,523 @@
           <li><span class="check">✶</span> <span data-i18n="int-f6">Artist direction &amp; identiteit</span></li>
           <li><span class="check">✶</span> <span data-i18n="int-f7">Opdrachten &amp; huiswerk op maat</span></li>
         </ul>
+
         <div class="pricing-feature-title" data-i18n="beg-price-title">Prijzen</div>
         <div class="price-options">
-          <div class="price-row"><span class="price-label">1 Les</span><span class="price-amount">€75 <span class="per" data-i18n="price-les">/ les</span></span></div>
-          <div class="price-row"><span class="price-label">5 Lessen</span><span class="price-amount">€350 <span class="per" data-i18n="price-pakket">/ pakket</span></span></div>
-          <div class="price-row"><span class="price-label">10 Lessen</span><span class="price-amount">€650 <span class="per" data-i18n="price-pakket">/ pakket</span> <span class="price-save">BEST DEAL</span></span></div>
+          <div class="price-row">
+            <span class="price-label">1 Les</span>
+            <span class="price-amount">€75 <span class="per" data-i18n="price-les">/ les</span></span>
+          </div>
+          <div class="price-row">
+            <span class="price-label">5 Lessen</span>
+            <span class="price-amount">€350 <span class="per" data-i18n="price-pakket">/ pakket</span></span>
+          </div>
+          <div class="price-row">
+            <span class="price-label">10 Lessen</span>
+            <span class="price-amount">
+              €650 <span class="per" data-i18n="price-pakket">/ pakket</span>
+              <span class="price-save">BEST DEAL</span>
+            </span>
+          </div>
         </div>
+
         <div class="pricing-note" data-i18n="int-note">Excl. btw · Geen verborgen kosten</div>
-        <button class="intake-trigger" onclick="openIntake('Intermediate \u2014 Mentoring &amp; Coaching', 'Intermediate Mentoring')">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+
+        <button
+          class="intake-trigger"
+          onclick="openIntake('Intermediate \u2014 Mentoring &amp; Coaching', 'Intermediate Mentoring')"
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+            <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+          </svg>
           <span data-i18n="int-btn">Aanmelden &amp; Intake invullen</span>
         </button>
-      </div>
-    </div>
 
-  </div>
+      </div><!-- /pricing-body -->
+    </div><!-- /card: Intermediate -->
+
+
+  </div><!-- /pricing-grid -->
+
 </section>
 
-<!-- ── HOE WERKT HET ───────────────────────────────────────────── -->
+
+<!-- ============================================================
+     6. HOE WERKT HET — Vier stappen uitleg
+============================================================ -->
+
 <section class="section section-center" id="hoe-werkt-het">
-  <span class="section-tag" data-i18n="hoe-tag">Het proces</span>
-  <h2 class="section-title" data-i18n="hoe-title">Hoe werkt het?</h2>
-  <p class="section-sub" data-i18n="hoe-sub">Van eerste contact tot jouw eerste beat · in vier simpele stappen.</p>
+
+  <span class="section-tag"   data-i18n="hoe-tag">Het proces</span>
+  <h2   class="section-title" data-i18n="hoe-title">Hoe werkt het?</h2>
+  <p    class="section-sub"   data-i18n="hoe-sub">
+    Van eerste contact tot jouw eerste beat — in vier simpele stappen.
+  </p>
+
   <div class="divider"></div>
+
   <div class="steps-grid">
+
     <div class="step-card">
       <div class="step-num">01</div>
       <div class="step-title" data-i18n="step1-title">Neem contact op</div>
-      <p class="step-desc" data-i18n="step1-desc">Stuur ons een berichtje en vertel kort over je achtergrond en doelen.</p>
+      <p   class="step-desc"  data-i18n="step1-desc">
+        Stuur ons een berichtje en vertel kort over je achtergrond en doelen.
+      </p>
     </div>
+
     <div class="step-card">
       <div class="step-num">02</div>
       <div class="step-title" data-i18n="step2-title">Gratis kennismaking</div>
-      <p class="step-desc" data-i18n="step2-desc">We plannen een kort gesprek om te kijken welk traject bij jou past.</p>
+      <p   class="step-desc"  data-i18n="step2-desc">
+        We plannen een kort gesprek om te kijken welk traject bij jou past.
+      </p>
     </div>
+
     <div class="step-card">
       <div class="step-num">03</div>
       <div class="step-title" data-i18n="step3-title">Plan je lessen</div>
-      <p class="step-desc" data-i18n="step3-desc">Je kiest je pakket en we plannen de lessen op een moment dat jou uitkomt.</p>
+      <p   class="step-desc"  data-i18n="step3-desc">
+        Je kiest je pakket en we plannen de lessen op een moment dat jou uitkomt.
+      </p>
     </div>
+
     <div class="step-card">
       <div class="step-num">04</div>
       <div class="step-title" data-i18n="step4-title">Start met produceren</div>
-      <p class="step-desc" data-i18n="step4-desc">Persoonlijke 1-op-1 begeleiding volledig afgestemd op jouw niveau en stijl.</p>
+      <p   class="step-desc"  data-i18n="step4-desc">
+        Persoonlijke 1-op-1 begeleiding volledig afgestemd op jouw niveau en stijl.
+      </p>
     </div>
-  </div>
+
+  </div><!-- /steps-grid -->
+
 </section>
 
-<!-- ── CONTACT ────────────────────────────────────────────────── -->
+
+<!-- ============================================================
+     7. CONTACT — Call to action
+============================================================ -->
+
 <section class="section cta-section section-center" id="contact">
   <div class="cta-box">
+
     <span class="section-tag" data-i18n="contact-tag">Contact</span>
     <h2 data-i18n="contact-title">Klaar om te starten?</h2>
-    <p data-i18n="contact-p">Boek een gratis kennismakingsgesprek en ontdek welk traject het beste bij jou past. Geen verplichtingen.</p>
+    <p  data-i18n="contact-p">
+      Boek een gratis kennismakingsgesprek en ontdek welk traject het beste bij jou past.
+      Geen verplichtingen.
+    </p>
+
     <div class="contact-options">
-      <a href="mailto:info@demsnyco.com" class="btn-primary" data-i18n="contact-mail">📩 Stuur een mail</a>
-      <a href="https://wa.me/" class="btn-secondary" target="_blank" rel="noopener" data-i18n="contact-wa">💬 WhatsApp ons</a>
+      <a href="mailto:info@demsnyco.com" class="btn-primary"  data-i18n="contact-mail">📩 Stuur een mail</a>
+      <a href="https://wa.me/"           class="btn-secondary" data-i18n="contact-wa" target="_blank" rel="noopener">💬 WhatsApp ons</a>
     </div>
-    <p class="footer-spotify-note" data-i18n="contact-spotify">Of volg ons op Spotify en blijf op de hoogte van nieuwe releases.</p>
+
+    <p class="footer-spotify-note" data-i18n="contact-spotify">
+      Of volg ons op Spotify en blijf op de hoogte van nieuwe releases.
+    </p>
+
   </div>
 </section>
 
-<!-- ── FOOTER ─────────────────────────────────────────────────── -->
+
+<!-- ============================================================
+     8. FOOTER
+============================================================ -->
+
 <footer>
+
   <div class="footer-logo">DEMS <span>&amp;</span> NYCO</div>
-  <p data-i18n="footer-copy">© 2025 DEMS &amp; NYCO · Producer Coaching · Alle prijzen excl. btw</p>
+
+  <p data-i18n="footer-copy">
+    © 2025 DEMS &amp; NYCO · Producer Coaching · Alle prijzen excl. btw
+  </p>
+
   <ul class="footer-links">
-    <li><a href="#over-ons" data-i18n="footer-over">Over ons</a></li>
-    <li><a href="#diensten" data-i18n="footer-diensten">Diensten</a></li>
-    <li><a href="#contact" data-i18n="footer-contact">Contact</a></li>
+    <li><a href="#over-ons"  data-i18n="footer-over">Over ons</a></li>
+    <li><a href="#diensten"  data-i18n="footer-diensten">Diensten</a></li>
+    <li><a href="#contact"   data-i18n="footer-contact">Contact</a></li>
   </ul>
+
 </footer>
 
-<!-- ── INTAKE MODAL ────────────────────────────────────────────── -->
+
+<!-- ============================================================
+     9. INTAKE MODAL — Aanmeldformulier (4 stappen)
+     
+     Werking:
+       - Opent wanneer op een "Aanmelden" knop geklikt wordt
+       - Titel en voorgeselecteerde dienst worden dynamisch ingevuld
+       - Stap 1: Basisgegevens + leeftijdsverificatie
+       - Stap 2: Over jezelf (dienst, ervaring, software)
+       - Stap 3: Doelen & muziekstijl
+       - Stap 4: Praktisch (pakket, bron, link)
+       - Verzenden gaat via Formspree
+============================================================ -->
+
 <div class="modal-overlay" id="intakeModal" onclick="handleOverlayClick(event)">
   <div class="modal-panel" id="modalPanel">
 
+
+    <!-- Modal header -->
     <div class="modal-head">
+
       <div class="modal-head-tag">
-        <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/></svg>
+        <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor">
+          <circle cx="12" cy="12" r="10"/>
+        </svg>
         <span data-i18n="modal-tag">Exclusieve intake</span>
       </div>
-      <h2 id="modalTitle"></h2>
-      <p data-i18n="modal-sub">Vertel ons iets over jezelf zodat we de beste begeleiding voor jou kunnen samenstellen.</p>
-      <button class="modal-close" onclick="closeIntake()" aria-label="Sluiten">✕</button>
-    </div>
 
+      <h2 id="modalTitle"></h2><!-- Wordt dynamisch ingevuld via intake.js -->
+
+      <p data-i18n="modal-sub">
+        Vertel ons iets over jezelf zodat we de beste begeleiding voor jou kunnen samenstellen.
+      </p>
+
+      <button class="modal-close" onclick="closeIntake()" aria-label="Sluiten">✕</button>
+
+    </div><!-- /modal-head -->
+
+
+    <!-- Voortgangsbalk -->
     <div class="modal-progress">
       <div class="modal-progress-fill" id="progressFill"></div>
     </div>
 
+
+    <!-- Formulier body -->
     <div class="modal-body">
       <form id="intakeForm" onsubmit="return false;">
 
-        <!-- STAP 1 -->
+
+        <!-- ── STAP 1: Basisgegevens ── -->
         <div class="form-step active" data-step="1">
+
           <div class="form-section-title" data-i18n="step-1-title">Basisgegevens</div>
-          <div class="form-section-sub" data-i18n="step-1-sub">Even kennismaken — helemaal vrijblijvend.</div>
+          <div class="form-section-sub"   data-i18n="step-1-sub">Even kennismaken — helemaal vrijblijvend.</div>
+
+          <!-- Naam -->
           <div class="form-group">
             <label data-i18n="lbl-naam">Naam</label>
-            <input class="form-input" type="text" name="naam" data-i18n-ph="ph-naam" placeholder="Jouw naam" />
+            <input
+              class="form-input"
+              type="text"
+              name="naam"
+              data-i18n-ph="ph-naam"
+              placeholder="Jouw naam"
+            />
           </div>
+
+          <!-- E-mail -->
           <div class="form-group">
             <label data-i18n="lbl-email">E-mailadres</label>
-            <input class="form-input" type="email" name="email" data-i18n-ph="ph-email" placeholder="jouw@email.com" />
+            <input
+              class="form-input"
+              type="email"
+              name="email"
+              data-i18n-ph="ph-email"
+              placeholder="jouw@email.com"
+            />
           </div>
+
+          <!-- Telefoon (optioneel) -->
           <div class="form-group">
-            <label><span data-i18n="lbl-tel">Telefoonnummer / WhatsApp</span> <span class="optional" data-i18n="optional">(optioneel)</span></label>
-            <input class="form-input" type="tel" name="telefoon" data-i18n-ph="ph-tel" placeholder="+31 6 ..." />
+            <label>
+              <span data-i18n="lbl-tel">Telefoonnummer / WhatsApp</span>
+              <span class="optional" data-i18n="optional">(optioneel)</span>
+            </label>
+            <input
+              class="form-input"
+              type="tel"
+              name="telefoon"
+              data-i18n-ph="ph-tel"
+              placeholder="+31 6 ..."
+            />
           </div>
+
+          <!-- Leeftijd -->
           <div class="form-group">
             <label data-i18n="lbl-leeftijd">Leeftijd</label>
-            <input class="form-input" type="number" name="leeftijd" id="leeftijdInput" data-i18n-ph="ph-leeftijd" placeholder="Jouw leeftijd" min="1" max="99" />
-            <p id="leeftijdFout" style="color:#f87171;font-size:.78rem;margin-top:.4rem;display:none;" data-i18n="err-leeftijd">⚠️ Je moet minimaal 18 jaar oud zijn om je aan te melden.</p>
+            <input
+              class="form-input"
+              type="number"
+              name="leeftijd"
+              id="leeftijdInput"
+              data-i18n-ph="ph-leeftijd"
+              placeholder="Jouw leeftijd"
+              min="1"
+              max="99"
+            />
+            <p id="leeftijdFout"
+               style="color:#f87171; font-size:.78rem; margin-top:.4rem; display:none;"
+               data-i18n="err-leeftijd"
+            >
+              ⚠️ Je moet minimaal 18 jaar oud zijn om je aan te melden.
+            </p>
           </div>
+
+          <!-- Leeftijdsbevestiging checkbox -->
           <div class="form-group">
             <label class="checkbox-label" for="leeftijdCheck">
-              <input type="checkbox" id="leeftijdCheck" name="leeftijd_bevestigd" value="Ja, ik ben 18 jaar of ouder" />
+              <input
+                type="checkbox"
+                id="leeftijdCheck"
+                name="leeftijd_bevestigd"
+                value="Ja, ik ben 18 jaar of ouder"
+              />
               <span data-i18n="lbl-leeftijd-check">Ik verklaar dat ik 18 jaar of ouder ben</span>
             </label>
-            <p id="checkFout" style="color:#f87171;font-size:.78rem;margin-top:.4rem;display:none;" data-i18n="err-check">⚠️ Je moet bevestigen dat je 18 jaar of ouder bent.</p>
+            <p id="checkFout"
+               style="color:#f87171; font-size:.78rem; margin-top:.4rem; display:none;"
+               data-i18n="err-check"
+            >
+              ⚠️ Je moet bevestigen dat je 18 jaar of ouder bent.
+            </p>
           </div>
-        </div>
 
-        <!-- STAP 2 -->
+        </div><!-- /stap 1 -->
+
+
+        <!-- ── STAP 2: Over jezelf ── -->
         <div class="form-step" data-step="2">
+
           <div class="form-section-title" data-i18n="step-2-title">Over jezelf</div>
-          <div class="form-section-sub" data-i18n="step-2-sub">Zodat we direct weten welk traject bij jou past.</div>
+          <div class="form-section-sub"   data-i18n="step-2-sub">Zodat we direct weten welk traject bij jou past.</div>
+
+          <!-- Dienst -->
           <div class="form-group">
             <label data-i18n="lbl-dienst">Welke dienst interesseert je?</label>
             <div class="pill-group">
               <input class="pill-option" type="radio" name="dienst" id="d1" value="Beginner Productie" />
               <label class="pill-label" for="d1" data-i18n="opt-beginner-prod">🎛️ Beginner Productie</label>
+
               <input class="pill-option" type="radio" name="dienst" id="d2" value="Intermediate Mentoring" />
               <label class="pill-label" for="d2" data-i18n="opt-intermediate">🚀 Intermediate Mentoring</label>
+
               <input class="pill-option" type="radio" name="dienst" id="d3" value="DJ Lessen" />
               <label class="pill-label" for="d3" data-i18n="opt-dj">🎧 DJ Lessen</label>
             </div>
           </div>
+
+          <!-- Ervaring -->
           <div class="form-group">
             <label data-i18n="lbl-ervaring">Hoeveel ervaring heb je al?</label>
             <div class="pill-group">
               <input class="pill-option" type="radio" name="ervaring" id="e1" value="Complete beginner" />
               <label class="pill-label" for="e1" data-i18n="opt-complete-beg">Complete beginner</label>
+
               <input class="pill-option" type="radio" name="ervaring" id="e2" value="Beetje ervaring" />
               <label class="pill-label" for="e2" data-i18n="opt-beetje">Beetje ervaring</label>
+
               <input class="pill-option" type="radio" name="ervaring" id="e3" value="Gevorderd" />
               <label class="pill-label" for="e3" data-i18n="opt-gevorderd">Gevorderd</label>
             </div>
           </div>
+
+          <!-- Software -->
           <div class="form-group">
-            <label><span data-i18n="lbl-software">Welke software gebruik je al?</span> <span class="optional" data-i18n="multiple">(meerdere mogelijk)</span></label>
+            <label>
+              <span data-i18n="lbl-software">Welke software gebruik je al?</span>
+              <span class="optional" data-i18n="multiple">(meerdere mogelijk)</span>
+            </label>
             <div class="pill-group">
               <input class="pill-option" type="checkbox" name="software" id="sw1" value="Ableton Live" />
               <label class="pill-label" for="sw1">Ableton Live</label>
+
               <input class="pill-option" type="checkbox" name="software" id="sw2" value="FL Studio" />
               <label class="pill-label" for="sw2">FL Studio</label>
+
               <input class="pill-option" type="checkbox" name="software" id="sw3" value="Logic Pro" />
               <label class="pill-label" for="sw3">Logic Pro</label>
+
               <input class="pill-option" type="checkbox" name="software" id="sw4" value="Rekordbox" />
               <label class="pill-label" for="sw4">Rekordbox</label>
+
               <input class="pill-option" type="checkbox" name="software" id="sw5" value="Serato" />
               <label class="pill-label" for="sw5">Serato</label>
+
               <input class="pill-option" type="checkbox" name="software" id="sw6" value="Nog niets" />
               <label class="pill-label" for="sw6" data-i18n="opt-nog-niets">Nog niets</label>
             </div>
           </div>
-        </div>
 
-        <!-- STAP 3 -->
+        </div><!-- /stap 2 -->
+
+
+        <!-- ── STAP 3: Doelen & stijl ── -->
         <div class="form-step" data-step="3">
+
           <div class="form-section-title" data-i18n="step-3-title">Doelen &amp; stijl</div>
-          <div class="form-section-sub" data-i18n="step-3-sub">Wat wil je bereiken? Hoe meer je deelt, hoe beter wij kunnen helpen.</div>
+          <div class="form-section-sub"   data-i18n="step-3-sub">
+            Wat wil je bereiken? Hoe meer je deelt, hoe beter wij kunnen helpen.
+          </div>
+
+          <!-- Doelen -->
           <div class="form-group">
-            <label><span data-i18n="lbl-doel">Wat is je doel met de lessen?</span> <span class="optional" data-i18n="multiple">(meerdere mogelijk)</span></label>
+            <label>
+              <span data-i18n="lbl-doel">Wat is je doel met de lessen?</span>
+              <span class="optional" data-i18n="multiple">(meerdere mogelijk)</span>
+            </label>
             <div class="pill-group">
               <input class="pill-option" type="checkbox" name="doel" id="do1" value="Hobby" />
               <label class="pill-label" for="do1" data-i18n="opt-hobby">🎵 Hobby</label>
+
               <input class="pill-option" type="checkbox" name="doel" id="do2" value="Releases uitbrengen" />
               <label class="pill-label" for="do2" data-i18n="opt-releases">📀 Releases uitbrengen</label>
+
               <input class="pill-option" type="checkbox" name="doel" id="do3" value="Live spelen" />
               <label class="pill-label" for="do3" data-i18n="opt-live">🎤 Live spelen</label>
+
               <input class="pill-option" type="checkbox" name="doel" id="do4" value="Artist project opbouwen" />
               <label class="pill-label" for="do4" data-i18n="opt-artist">✦ Artist project opbouwen</label>
+
               <input class="pill-option" type="checkbox" name="doel" id="do5" value="Carrière maken" />
               <label class="pill-label" for="do5" data-i18n="opt-carriere">🏆 Carrière maken</label>
             </div>
           </div>
+
+          <!-- Muziekstijl -->
           <div class="form-group">
             <label data-i18n="lbl-stijl">Welke muziekstijlen maak/draai je het liefst?</label>
-            <input class="form-input" type="text" name="stijl" data-i18n-ph="ph-stijl" placeholder="Bijv. Techno, Afrobeats, Hip-Hop, Drum &amp; Bass..." />
+            <input
+              class="form-input"
+              type="text"
+              name="stijl"
+              data-i18n-ph="ph-stijl"
+              placeholder="Bijv. Techno, Afrobeats, Hip-Hop, Drum &amp; Bass..."
+            />
           </div>
+
+          <!-- Concreet doel -->
           <div class="form-group">
             <label data-i18n="lbl-concreet">Wat wil je concreet bereiken met de coaching?</label>
-            <textarea class="form-textarea" name="doel_concreet" data-i18n-ph="ph-concreet" placeholder="Vertel in je eigen woorden wat je wilt leren of bereiken..." rows="4"></textarea>
+            <textarea
+              class="form-textarea"
+              name="doel_concreet"
+              data-i18n-ph="ph-concreet"
+              placeholder="Vertel in je eigen woorden wat je wilt leren of bereiken..."
+              rows="4"
+            ></textarea>
           </div>
-        </div>
 
-        <!-- STAP 4 -->
+        </div><!-- /stap 3 -->
+
+
+        <!-- ── STAP 4: Praktisch ── -->
         <div class="form-step" data-step="4">
+
           <div class="form-section-title" data-i18n="step-4-title">Praktisch</div>
-          <div class="form-section-sub" data-i18n="step-4-sub">Bijna klaar, nog een paar korte vragen.</div>
+          <div class="form-section-sub"   data-i18n="step-4-sub">Bijna klaar — nog een paar korte vragen.</div>
+
+          <!-- Pakket -->
           <div class="form-group">
             <label data-i18n="lbl-pakket">Welk pakket overweeg je?</label>
             <div class="pill-group">
               <input class="pill-option" type="radio" name="pakket" id="p1" value="Losse les" />
               <label class="pill-label" for="p1" data-i18n="opt-losse">1 Losse les</label>
+
               <input class="pill-option" type="radio" name="pakket" id="p2" value="5 lessen" />
               <label class="pill-label" for="p2" data-i18n="opt-5">5 Lessen</label>
+
               <input class="pill-option" type="radio" name="pakket" id="p3" value="10 lessen" />
               <label class="pill-label" for="p3" data-i18n="opt-10">10 Lessen</label>
             </div>
           </div>
+
+          <!-- Hoe gevonden -->
           <div class="form-group">
             <label data-i18n="lbl-bron">Hoe ben je bij ons terechtgekomen?</label>
             <div class="pill-group">
               <input class="pill-option" type="radio" name="bron" id="b1" value="Instagram" />
               <label class="pill-label" for="b1">Instagram</label>
+
               <input class="pill-option" type="radio" name="bron" id="b2" value="Spotify" />
               <label class="pill-label" for="b2">Spotify</label>
+
               <input class="pill-option" type="radio" name="bron" id="b3" value="TikTok" />
               <label class="pill-label" for="b3">TikTok</label>
+
               <input class="pill-option" type="radio" name="bron" id="b4" value="Via via" />
               <label class="pill-label" for="b4">Via via</label>
+
               <input class="pill-option" type="radio" name="bron" id="b5" value="Anders" />
               <label class="pill-label" for="b5" data-i18n="opt-anders">Anders</label>
             </div>
           </div>
+
+          <!-- Link naar werk (optioneel) -->
           <div class="form-group">
-            <label><span data-i18n="lbl-link">Tracks of mixen om te delen</span> <span class="optional" data-i18n="optional">(optioneel)</span></label>
-            <input class="form-input" type="url" name="link" data-i18n-ph="ph-link" placeholder="SoundCloud / Google Drive / Dropbox link..." />
+            <label>
+              <span data-i18n="lbl-link">Tracks of mixen om te delen</span>
+              <span class="optional" data-i18n="optional">(optioneel)</span>
+            </label>
+            <input
+              class="form-input"
+              type="url"
+              name="link"
+              data-i18n-ph="ph-link"
+              placeholder="SoundCloud / Google Drive / Dropbox link..."
+            />
           </div>
+
+          <!-- Verzendknop -->
           <button type="button" class="btn-submit" onclick="submitForm(event)">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="22" y1="2" x2="11" y2="13"/>
+              <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+            </svg>
             <span data-i18n="btn-submit">Verstuur Aanvraag</span>
           </button>
-          <p class="btn-submit-note" data-i18n="submit-note">We bekijken persoonlijk elke aanvraag en nemen zo snel mogelijk contact met je op.</p>
-        </div>
 
-      </form>
+          <p class="btn-submit-note" data-i18n="submit-note">
+            We bekijken persoonlijk elke aanvraag en nemen zo snel mogelijk contact met je op.
+          </p>
 
-      <!-- Navigatie -->
+        </div><!-- /stap 4 -->
+
+
+      </form><!-- /intakeForm -->
+
+
+      <!-- Navigatie knoppen (terug / volgende) -->
       <div class="modal-nav" id="modalNav">
         <div class="step-dots" id="stepDots"></div>
         <button class="btn-nav-back" id="btnBack" onclick="prevStep()" data-i18n="btn-back">← Terug</button>
         <button class="btn-nav-next" id="btnNext" onclick="nextStep()">
           <span data-i18n="btn-next">Volgende</span>
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"/>
+          </svg>
         </button>
-      </div>
+      </div><!-- /modal-nav -->
 
-      <!-- Bevestiging -->
+
+      <!-- Bevestigingsscherm na verzenden -->
       <div class="modal-success" id="modalSuccess">
         <div class="success-icon">✓</div>
         <h3 data-i18n="success-title">Aanvraag ontvangen!</h3>
-        <p data-i18n="success-p">Bedankt voor je aanmelding. We bekijken jouw aanvraag persoonlijk en nemen zo snel mogelijk contact met je op.</p>
-      </div>
+        <p  data-i18n="success-p">
+          Bedankt voor je aanmelding. We bekijken jouw aanvraag persoonlijk
+          en nemen zo snel mogelijk contact met je op.
+        </p>
+      </div><!-- /modal-success -->
 
-    </div>
-  </div>
-</div>
 
-<script src="lang.js"></script>
-<script src="intake.js"></script>
+    </div><!-- /modal-body -->
+  </div><!-- /modal-panel -->
+</div><!-- /modal-overlay -->
+
+
+<!-- ============================================================
+     10. SCRIPTS
+============================================================ -->
+
+<script src="lang.js"></script>    <!-- Taalwisselaar NL/EN -->
+<script src="intake.js"></script>  <!-- Intakeformulier logica -->
+
+
 </body>
 </html>
