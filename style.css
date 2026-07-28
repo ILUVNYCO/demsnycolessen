@@ -744,7 +744,9 @@ footer p { color: var(--grey); font-size: .82rem; }
 /* ── DISCORD INVITE ───────────────────────────────────────── */
 
 .discord-invite {
-  margin-top: 2rem;
+  margin-top: 2.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255,255,255,.06);
   background: rgba(88, 101, 242, .1);
   border: 1px solid rgba(88, 101, 242, .3);
   border-radius: 16px;
