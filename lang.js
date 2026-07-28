@@ -15,14 +15,14 @@ const translations = {
       // HERO
       'hero-tag':         '🎛️ Producer Coaching — Beginner & Intermediate',
       'hero-h1':          'Leer produceren<br>van <span class="accent">echte artiesten</span>',
-      'hero-p':           'Persoonlijke 1-op-1 begeleiding van DEMS en NYCO. Van je eerste beat tot een release-ready track — op jouw tempo, in jouw stijl.',
+      'hero-p':           'Persoonlijke 1-op-1 begeleiding van DEMS en NYCO. Van je eerste beat tot een release-ready track, op jouw tempo, in jouw stijl.',
       'hero-btn-primary': 'Boek een gratis kennismaking',
       'hero-btn-secondary':'Bekijk de diensten',
   
       // OVER ONS
       'over-tag':         'De coaches',
       'over-title':       'Leer van artiesten<br>die het zelf doen',
-      'over-sub':         'Geen theorie voor de theorie — wij geven lessen vanuit echte studio-ervaring en een actieve carrière in de muziekindustrie.',
+      'over-sub':         'Geen theorie voor de theorie, wij geven lessen vanuit echte studio-ervaring en een actieve carrière in de muziekindustrie.',
       'dems-desc':        'Producer en artiest met een passie voor het overbrengen van kennis. DEMS begeleidt je van je eerste stappen in Ableton tot een professionele workflow die bij jou past.',
       'nyco-desc':        'Artiest en producer met een scherp oor voor sound design en arrangement. NYCO helpt je jouw tracks naar een professioneel niveau tillen met focus op jouw artistieke identiteit.',
       'spotify-btn':      'Luister op Spotify',
@@ -53,7 +53,7 @@ const translations = {
       // DJ CARD
       'dj-level':         'Alle niveaus',
       'dj-title':         'DJ Lessen',
-      'dj-desc':          "Leer DJ'en van scratch of verfijn je skills op de decks — op jouw niveau en tempo.",
+      'dj-desc':          "Leer DJ'en van scratch of verfijn je skills op de decks, op jouw niveau en tempo.",
       'dj-feat-title':    'Wat je leert',
       'dj-f1':            'Beatmatching & tempo controle',
       'dj-f2':            'Mixen & overgangen',
@@ -113,7 +113,7 @@ const translations = {
       'modal-sub':        'Vertel ons iets over jezelf zodat we de beste begeleiding voor jou kunnen samenstellen.',
       // Stap 1
       'step-1-title':     'Basisgegevens',
-      'step-1-sub':       'Even kennismaken — helemaal vrijblijvend.',
+      'step-1-sub':       'Even kennismaken, helemaal vrijblijvend.',
       'lbl-naam':         'Naam',
       'lbl-email':        'E-mailadres',
       'lbl-tel':          'Telefoonnummer / WhatsApp',
@@ -153,7 +153,7 @@ const translations = {
       'opt-carriere':     '🏆 Carrière maken',
       // Stap 4
       'step-4-title':     'Praktisch',
-      'step-4-sub':       'Bijna klaar — nog een paar korte vragen.',
+      'step-4-sub':       'Bijna klaar, nog een paar korte vragen.',
       'lbl-pakket':       'Welk pakket overweeg je?',
       'lbl-bron':         'Hoe ben je bij ons terechtgekomen?',
       'lbl-link':         'Tracks of mixen om te delen',
@@ -185,7 +185,7 @@ const translations = {
       // HERO
       'hero-tag':         '🎛️ Producer Coaching — Beginner & Intermediate',
       'hero-h1':          'Learn to produce<br>from <span class="accent">real artists</span>',
-      'hero-p':           'Personal 1-on-1 guidance from DEMS and NYCO. From your first beat to a release-ready track — at your pace, in your style.',
+      'hero-p':           'Personal 1-on-1 guidance from DEMS and NYCO. From your first beat to a release-ready track, at your pace, in your style.',
       'hero-btn-primary': 'Book a free intro call',
       'hero-btn-secondary':'View our services',
   
