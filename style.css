@@ -64,6 +64,23 @@ nav {
 }
 .nav-cta:hover { background: var(--purple-dark) !important; }
 
+.lang-toggle {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,.2);
+  color: var(--grey-light);
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: .78rem; font-weight: 700;
+  letter-spacing: .1em;
+  padding: .35rem .8rem; border-radius: 6px;
+  cursor: pointer; transition: all .2s;
+  margin-left: 1rem;
+}
+.lang-toggle:hover {
+  border-color: var(--purple-light);
+  color: var(--white);
+  background: rgba(139,92,246,.1);
+}
+
 
 /* ── FLUID BLOB ACHTERGROND — HELE PAGINA ─────────────────── */
 
