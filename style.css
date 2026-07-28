@@ -261,12 +261,20 @@ nav {
 .artist-card:hover { border-color: var(--purple); transform: translateY(-4px); }
 
 .artist-avatar {
-  width: 90px; height: 90px; border-radius: 50%;
-  background: linear-gradient(135deg, var(--purple-dark), var(--purple-light));
-  display: flex; align-items: center; justify-content: center;
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 2rem; font-weight: 700; color: #fff; margin: 0 auto 1.5rem;
+  width: 140px; height: 140px; border-radius: 50%;
+  object-fit: cover; object-position: center 8%;
+  display: block; margin: 0 auto 1.5rem;
+  border: 3px solid rgba(139, 92, 246, .4);
+  box-shadow: 0 0 0 6px rgba(139, 92, 246, .08), 0 8px 32px rgba(0,0,0,.4);
+  transition: border-color .3s, box-shadow .3s;
 }
+.artist-card:hover .artist-avatar {
+  border-color: var(--purple);
+  box-shadow: 0 0 0 6px rgba(139, 92, 246, .15), 0 8px 32px rgba(0,0,0,.4);
+}
+/* Fijnafstelling per persoon */
+.avatar-dems { object-position: center 15%; }
+.avatar-nyco { object-position: center 10%; }
 .artist-name {
   font-family: 'Space Grotesk', sans-serif;
   font-size: 1.5rem; font-weight: 700; margin-bottom: .2rem;
